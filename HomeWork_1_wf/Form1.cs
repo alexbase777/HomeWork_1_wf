@@ -1,4 +1,4 @@
-namespace HomeWork_1_wf
+п»їnamespace HomeWork_1_wf
 {
     public partial class HomeWork_1 : Form
     {
@@ -8,16 +8,16 @@ namespace HomeWork_1_wf
             InitializeComponent();
         }
 
-        // Обработка события "Новедение курсора на кнопку" ("убегание" кнопки от курсора мыши)
+        // РћР±СЂР°Р±РѕС‚РєР° СЃРѕР±С‹С‚РёСЏ "РќРѕРІРµРґРµРЅРёРµ РєСѓСЂСЃРѕСЂР° РЅР° РєРЅРѕРїРєСѓ" ("СѓР±РµРіР°РЅРёРµ" РєРЅРѕРїРєРё РѕС‚ РєСѓСЂСЃРѕСЂР° РјС‹С€Рё)
         private void btn1_run_away_MouseMove(object sender, MouseEventArgs e)
         {
-            Random r = new Random(); // Генератор случайных чисел
-            // Для задания эффекта "убегания" кнопки присваиваем координатам кнопки новые рандомные координаты
+            Random r = new Random(); // Р“РµРЅРµСЂР°С‚РѕСЂ СЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР»
+            // Р”Р»СЏ Р·Р°РґР°РЅРёСЏ СЌС„С„РµРєС‚Р° "СѓР±РµРіР°РЅРёСЏ" РєРЅРѕРїРєРё РїСЂРёСЃРІР°РёРІР°РµРј РєРѕРѕСЂРґРёРЅР°С‚Р°Рј РєРЅРѕРїРєРё РЅРѕРІС‹Рµ СЂР°РЅРґРѕРјРЅС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹
             btn1_run_away.Left = r.Next(0, gb2_area_run.Width - btn1_run_away.Width);
             btn1_run_away.Top = r.Next(0, gb2_area_run.Height - btn1_run_away.Height);
         }
 
-        private void btn1_Open_Click(object sender, EventArgs e) // Нажатие на кнопку "Открыть"
+        private void btn1_Open_Click(object sender, EventArgs e) // РќР°Р¶Р°С‚РёРµ РЅР° РєРЅРѕРїРєСѓ "РћС‚РєСЂС‹С‚СЊ"
         {            
             openFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -43,16 +43,16 @@ namespace HomeWork_1_wf
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {        
             if ((keyData & Keys.Control) == Keys.Control)
-                this.ActiveControl = null; // При нажатой клавише Control убираем фокус с TextBox,
-                                           // чтобы в нём не прописывались лишние символы
+                this.ActiveControl = null; // РџСЂРё РЅР°Р¶Р°С‚РѕР№ РєР»Р°РІРёС€Рµ Control СѓР±РёСЂР°РµРј С„РѕРєСѓСЃ СЃ TextBox,
+                                           // С‡С‚РѕР±С‹ РІ РЅС‘Рј РЅРµ РїСЂРѕРїРёСЃС‹РІР°Р»РёСЃСЊ Р»РёС€РЅРёРµ СЃРёРјРІРѕР»С‹
             if (((keyData & Keys.Control) == Keys.Control) && ((keyData & Keys.W) == Keys.W))
             {                
-                btn1_Open.PerformClick(); // При нажатии клавиш Ctrl + W вызываем нажатие кнопки btn1_Open
+                btn1_Open.PerformClick(); // РџСЂРё РЅР°Р¶Р°С‚РёРё РєР»Р°РІРёС€ Ctrl + W РІС‹Р·С‹РІР°РµРј РЅР°Р¶Р°С‚РёРµ РєРЅРѕРїРєРё btn1_Open
             }
             else                
                 if (((keyData & Keys.Control) == Keys.Control) && ((keyData & Keys.S) == Keys.S))
                 {
-                    btn2_Save.PerformClick(); // При нажатии клавиш Ctrl + S вызываем нажатие кнопки btn2_Save                    
+                    btn2_Save.PerformClick(); // РџСЂРё РЅР°Р¶Р°С‚РёРё РєР»Р°РІРёС€ Ctrl + S РІС‹Р·С‹РІР°РµРј РЅР°Р¶Р°С‚РёРµ РєРЅРѕРїРєРё btn2_Save                    
                 }            
             return base.ProcessCmdKey(ref msg, keyData);
         }
